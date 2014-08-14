@@ -23,7 +23,7 @@
 
 # This is for Chef 10 and earlier where attributes aren't loaded
 # deterministically (resolved in Chef 11).
-node.load_attribute_by_short_filename('source', 'nginx') if node.respond_to?(:load_attribute_by_short_filename)
+node.include_attribute('source', 'nginx') if node.respond_to?(:include_attribute)
 
 nginx_url = node['nginx']['source']['url'] ||
   "http://nginx.org/download/nginx-#{node['nginx']['source']['version']}.tar.gz"
